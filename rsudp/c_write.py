@@ -5,7 +5,7 @@ from obspy import UTCDateTime
 from rsudp.raspberryshake import ConsumerThread
 import rsudp.raspberryshake as rs
 from rsudp import printM, printW, printE, helpers
-from rsudp import data_dir
+import rsudp
 
 class Write(rs.ConsumerThread):
 	"""
@@ -27,7 +27,7 @@ class Write(rs.ConsumerThread):
 		self.queue = q
 
 		self.stream = rs.Stream()
-		self.outdir = data_dir
+		self.outdir = rsudp.data_dir
 		self.debug = debug
 
 		self.chans = []
